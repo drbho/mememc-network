@@ -1,127 +1,175 @@
 <!DOCTYPE html>
-<html lang="it" class="dark">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StrikeDSMP | Sangue, Sudore e Cubi</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        strike: {
-                            base: '#0a0a0c', 
-                            card: '#121215', 
-                            primary: '#ff4d00', 
-                            accent: '#ff8000',
-                            toxic: '#adff2f'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        display: ['Syne', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <title>MemeSMP | Risate, Lag e Cubi</title>
     <style>
-        
-        body::before {
-            content: "";
-            fixed: top 0 left 0;
-            width: 100%; height: 100%;
-            opacity: 0.03;
-            pointer-events: none;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            z-index: 50;
+        :root {
+            --primary-green: #00ff41; /* Verde Matrix/Hacker */
+            --dark-green: #0d3b15;
+            --bg-color: #051107;
+            --text-color: #e0ffe0;
+            --accent-lime: #ccff00;
         }
 
-        .text-glow { text-shadow: 0 0 15px rgba(255, 77, 0, 0.5); }
-        
-        .hero-gradient {
-            background: radial-gradient(circle at center, rgba(255, 77, 0, 0.15) 0%, rgba(10, 10, 12, 1) 70%);
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace; /* Font stile "codice" o retro */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-align: center;
         }
 
-        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-hover:hover { transform: translateY(-10px) rotate(1deg); }
+        header {
+            background: linear-gradient(180deg, var(--dark-green) 0%, var(--bg-color) 100%);
+            padding: 40px 20px;
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            color: var(--primary-green);
+            text-shadow: 0 0 10px var(--primary-green);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-lime);
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro-box {
+            border: 2px dashed var(--primary-green);
+            padding: 30px;
+            margin: 30px 0;
+            background-color: rgba(0, 255, 65, 0.05);
+            border-radius: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--bg-color);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--primary-green);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-lime);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--accent-lime);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--dark-green);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--primary-green);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: #1a4d25;
+        }
+
+        .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #88ff88;
+            border-top: 1px solid var(--dark-green);
+        }
+
+        /* Effetto glitch leggero sul titolo */
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        
+        h1:hover {
+            animation: glitch 0.3s infinite;
+        }
     </style>
 </head>
-<body class="bg-strike-base text-zinc-300 font-sans selection:bg-strike-primary selection:text-white">
+<body>
 
-    <nav class="fixed w-full z-50 backdrop-blur-md border-b border-white/5 bg-strike-base/80">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-display text-2xl font-extrabold tracking-tighter text-white">
-                STRIKE<span class="text-strike-primary">DSMP</span>
-            </a>
-            <div class="flex items-center gap-6">
-                <a href="https://discord.gg/tpemJcaVFc" target="_blank" class="text-sm font-bold uppercase tracking-widest hover:text-strike-primary transition-colors">
-                    Unisciti alla rissa
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="relative pt-40 pb-24 px-6 hero-gradient overflow-hidden">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-strike-toxic opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-strike-toxic"></span>
-                </span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">Progetto 100% Indipendente</span>
-            </div>
-
-            <h1 class="font-display text-6xl md:text-8xl font-extrabold text-white mb-6 leading-none">
-                BASTA <span class="text-strike-primary text-glow underline decoration-white/10">SERVER</span><br>NOIOSI.
-            </h1>
-            
-            <p class="text-lg md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light">
-                Siamo in <span class="text-white font-bold">67</span>. Non siamo numeri su una lista, siamo quelli che restano svegli fino alle 3 per finire una build. Niente pay-to-win, solo puro survival.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="https://discord.gg/tpemJcaVFc" class="bg-strike-primary hover:bg-strike-accent text-white px-10 py-5 rounded-2xl font-black text-xl shadow-[0_10px_40px_rgba(255,77,0,0.3)] transition-all hover:-translate-y-1">
-                    ENTRA NEL DISCORD
-                </a>
-            </div>
-        </div>
+    <header>
+        <h1>🤡 MemeSMP</h1>
+        <h2>Risate, Lag e Cubi</h2>
     </header>
 
-    <section class="max-w-6xl mx-auto py-20 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="bg-strike-card p-8 rounded-[2rem] border border-white/5 card-hover">
-                <div class="w-12 h-12 bg-strike-primary/20 rounded-xl flex items-center justify-center text-2xl mb-6">💀</div>
-                <h3 class="font-display text-2xl text-white mb-4">Hardcore Vibes</h3>
-                <p class="text-zinc-500 leading-relaxed">Niente plugin che ti rovinano l'esperienza. Se cadi nella lava, sono fatti tuoi. È Minecraft come dovrebbe essere.</p>
-            </div>
-
-            <div class="bg-strike-card p-8 rounded-[2rem] border border-white/5 card-hover md:mt-12">
-                <div class="w-12 h-12 bg-strike-accent/20 rounded-xl flex items-center justify-center text-2xl mb-6">🔥</div>
-                <h3 class="font-display text-2xl text-white mb-4">Solo Gente Seria</h3>
-                <p class="text-zinc-500 leading-relaxed">Siamo 67 player selezionati. Se cerchi un posto dove griffare e urlare in chat, hai sbagliato porta.</p>
-            </div>
-
-            <div class="bg-strike-card p-8 rounded-[2rem] border border-white/5 card-hover">
-                <div class="w-12 h-12 bg-strike-toxic/20 rounded-xl flex items-center justify-center text-2xl mb-6">🛠️</div>
-                <h3 class="font-display text-2xl text-white mb-4">Zero Burocrazia</h3>
-                <p class="text-zinc-500 leading-relaxed">C'è un solo fondatore. Hai un problema? Parli con lui. Niente ticket infiniti o admin che si credono dei.</p>
-            </div>
-
+    <div class="container">
+        <div class="intro-box">
+            <h3>Progetto 100% Caotico</h3>
+            <p><strong>BASTA SERVER SERI.</strong></p>
+            <p>
+                Siamo in 69 (numero perfetto). Non siamo numeri su una lista, siamo quelli che spawnano TNT sotto il letto degli amici alle 3 di notte. 
+                Niente pay-to-win, solo puro <em>meme survival</em>. Se non ridi, stai giocando male.
+            </p>
+            <a href="https://discord.gg/tuolinkqui" class="cta-button">🚀 ENTRA NEL DISCORD (SE HAI CORAGGIO)</a>
         </div>
-    </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <div class="opacity-30 hover:opacity-100 transition-opacity">
-            <p class="font-display text-xl text-white mb-2 underline decoration-strike-primary">STRIKEDSMP</p>
-            <p class="text-xs tracking-widest uppercase">Fatto col sangue da un unico fondatore • 2024</p>
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <span class="emoji">🤪</span>
+                <h3>Vibes Assurde</h3>
+                <p>Niente regole noiose che ti rovinano il divertimento. Se cadi nella lava mentre scappi da una mucca esplosiva, è contenuto comico. È Minecraft come dovrebbe essere: folle.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <span class="emoji">🎭</span>
+                <h3>Solo Gente Che Sa Stare allo Scherzo</h3>
+                <p>Siamo player selezionati per il loro senso dell'umorismo (o per la mancanza di esso). Se cerchi un posto dove fare drammi seri, hai sbagliato porta. Qui si viene per i meme.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <span class="emoji">🗑️</span>
+                <h3>Zero Burocrazia, Max Chaos</h3>
+                <p>C'è un solo Admin Supremo (il Re dei Meme). Hai un problema? Probabilmente è una feature. Niente ticket infiniti, solo soluzioni rapide e possibilmente esplosive.</p>
+            </div>
         </div>
+    </div>
+
+    <footer>
+        <p><strong>MEMESMP</strong><br>Fatto col formaggio da un unico fondatore • 2026<br>🟩 Green Edition 🟩</p>
     </footer>
 
 </body>
