@@ -3,126 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MemeSMP - Il server Minecraft più caotico e divertente. Unisciti a noi per risate, lag e cubi!">
+    <meta name="theme-color" content="#00ff41">
     <title>MemeSMP | Risate, Lag e Cubi</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-green: #00ff41; /* Verde Matrix/Hacker */
+            --primary-green: #00ff41;
             --dark-green: #0d3b15;
             --bg-color: #051107;
             --text-color: #e0ffe0;
             --accent-lime: #ccff00;
+            --glitch-red: #ff003c;
+            --glitch-blue: #00f0ff;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace; /* Font stile "codice" o retro */
+            font-family: 'VT323', monospace;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: center;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(5, 17, 7, 0.9), rgba(5, 17, 7, 0.9)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ff41' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         header {
             background: linear-gradient(180deg, var(--dark-green) 0%, var(--bg-color) 100%);
-            padding: 40px 20px;
-            border-bottom: 2px solid var(--primary-green);
+            padding: 60px 20px;
+            border-bottom: 3px solid var(--primary-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         h1 {
-            font-size: 3rem;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
             margin: 0;
             text-transform: uppercase;
             color: var(--primary-green);
-            text-shadow: 0 0 10px var(--primary-green);
+            text-shadow: 
+                2px 2px var(--glitch-red),
+                -2px -2px var(--glitch-blue),
+                0 0 15px var(--primary-green);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-lime);
-            margin-top: 10px;
+            margin-top: 15px;
+            text-shadow: 0 0 8px var(--accent-lime);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .intro-box {
-            border: 2px dashed var(--primary-green);
-            padding: 30px;
-            margin: 30px 0;
-            background-color: rgba(0, 255, 65, 0.05);
-            border-radius: 10px;
+            border: 3px dashed var(--primary-green);
+            padding: 40px;
+            margin: 40px 0;
+            background-color: rgba(0, 255, 65, 0.08);
+            border-radius: 15px;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .intro-box::before {
+            content: '⚠️ WARNING ⚠️';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-color);
+            padding: 0 15px;
+            color: var(--accent-lime);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--primary-green);
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-lime));
             color: var(--bg-color);
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 18px 35px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
             text-decoration: none;
-            border-radius: 5px;
-            margin: 20px 0;
+            border-radius: 8px;
+            margin: 25px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px var(--primary-green);
+            box-shadow: 
+                0 0 20px var(--primary-green),
+                0 0 40px rgba(0, 255, 65, 0.5);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .cta-button:hover {
-            background-color: var(--accent-lime);
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--accent-lime);
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 
+                0 0 30px var(--accent-lime),
+                0 0 60px rgba(204, 255, 0, 0.6);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
 
         .feature-card {
-            background-color: var(--dark-green);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--primary-green);
-            transition: transform 0.2s;
+            background: linear-gradient(135deg, rgba(13, 59, 21, 0.8), rgba(5, 17, 7, 0.9));
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            background-color: #1a4d25;
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent-lime);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
         }
 
         .emoji {
-            font-size: 3rem;
+            font-size: 4rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--primary-green));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(2) .emoji {
+            animation-delay: 0.5s;
+        }
+
+        .feature-card:nth-child(3) .emoji {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .server-ip {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent-lime);
+            padding: 15px 25px;
+            margin: 30px auto;
+            max-width: 500px;
+            border-radius: 8px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: var(--accent-lime);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .server-ip:hover {
+            background: rgba(204, 255, 0, 0.1);
+            transform: scale(1.02);
+        }
+
+        .server-ip code {
+            display: block;
+            margin-top: 8px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px var(--accent-lime);
         }
 
         footer {
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1.1rem;
             color: #88ff88;
-            border-top: 1px solid var(--dark-green);
+            border-top: 2px solid var(--dark-green);
+            background: linear-gradient(0deg, var(--dark-green) 0%, transparent 100%);
         }
 
-        /* Effetto glitch leggero sul titolo */
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: var(--primary-green);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-lime);
+            transform: scale(1.2);
+            text-shadow: 0 0 10px var(--accent-lime);
+        }
+
+        /* Glitch effect on title */
         @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 2px) }
-            40% { transform: translate(-2px, -2px) }
-            60% { transform: translate(2px, 2px) }
-            80% { transform: translate(2px, -2px) }
-            100% { transform: translate(0) }
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
         }
         
         h1:hover {
             animation: glitch 0.3s infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .intro-box {
+                padding: 25px 15px;
+            }
+
+            .cta-button {
+                padding: 15px 25px;
+                font-size: 0.9rem;
+            }
+
+            .emoji {
+                font-size: 3rem;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
         }
     </style>
 </head>
@@ -135,42 +336,71 @@
 
     <div class="container">
         <div class="intro-box">
-            <h3>Progetto 100% Caotico</h3>
-            <p><strong>BASTA SERVER SERI.</strong></p>
-            <p>
+            <h3 style="font-family: 'Press Start 2P', cursive; color: var(--accent-lime); font-size: 1.2rem;">Progetto 100% Caotico</h3>
+            <p style="font-size: 1.3rem;"><strong>BASTA SERVER SERI.</strong></p>
+            <p style="font-size: 1.2rem;">
                 Siamo in 69 (numero perfetto). Non siamo numeri su una lista, siamo quelli che spawnano TNT sotto il letto degli amici alle 3 di notte. 
                 Niente pay-to-win, solo puro <em>meme survival</em>. Se non ridi, stai giocando male.
             </p>
-            <a href="https://discord.gg/HjDBbnANxQ" class="cta-button">🚀 ENTRA NEL DISCORD (SE HAI CORAGGIO)</a>
+            
+            <div class="server-ip" onclick="navigator.clipboard.writeText('play.memesmp.it'); alert('IP copiato!');">
+                📋 IP DEL SERVER
+                <code>play.memesmp.it</code>
+                <small style="display: block; margin-top: 8px; font-size: 0.7rem; opacity: 0.7;">Clicca per copiare</small>
+            </div>
+
+            <a href="https://discord.gg/HjDBbnANxQ" class="cta-button">🚀 ENTRA NEL DISCORD</a>
         </div>
 
         <div class="features-grid">
-            <!-- Feature 1 -->
             <div class="feature-card">
                 <span class="emoji">🤪</span>
-                <h3>Vibes Assurde</h3>
-                <p>Niente regole noiose che ti rovinano il divertimento. Se cadi nella lava mentre scappi da una mucca esplosiva, è contenuto comico. È Minecraft come dovrebbe essere: folle.</p>
+                <h3 style="font-family: 'Press Start 2P', cursive; font-size: 1rem; color: var(--primary-green);">Vibes Assurde</h3>
+                <p style="font-size: 1.1rem;">Niente regole noiose che ti rovinano il divertimento. Se cadi nella lava mentre scappi da una mucca esplosiva, è contenuto comico. È Minecraft come dovrebbe essere: folle.</p>
             </div>
 
-            <!-- Feature 2 -->
             <div class="feature-card">
                 <span class="emoji">🎭</span>
-                <h3>Solo Gente Che Sa Stare allo Scherzo</h3>
-                <p>Siamo player selezionati per il loro senso dell'umorismo (o per la mancanza di esso). Se cerchi un posto dove fare drammi seri, hai sbagliato porta. Qui si viene per i meme.</p>
+                <h3 style="font-family: 'Press Start 2P', cursive; font-size: 1rem; color: var(--primary-green);">Solo Community</h3>
+                <p style="font-size: 1.1rem;">Player selezionati per il loro senso dell'umorismo. Se cerchi drammi seri, hai sbagliato porta. Qui si viene per i meme e le risate.</p>
             </div>
 
-            <!-- Feature 3 -->
             <div class="feature-card">
                 <span class="emoji">🗑️</span>
-                <h3>Zero Burocrazia, Max Chaos</h3>
-                <p>C'è un solo Admin Supremo (il Re dei Meme). Hai un problema? Probabilmente è una feature. Niente ticket infiniti, solo soluzioni rapide e possibilmente esplosive.</p>
+                <h3 style="font-family: 'Press Start 2P', cursive; font-size: 1rem; color: var(--primary-green);">Max Chaos</h3>
+                <p style="font-size: 1.1rem;">Un solo Admin Supremo. Hai un problema? Probabilmente è una feature. Soluzioni rapide e possibilmente esplosive.</p>
             </div>
+        </div>
+
+        <div style="margin-top: 50px; padding: 30px; background: rgba(0, 255, 65, 0.05); border-radius: 10px; border: 1px solid var(--dark-green);">
+            <h3 style="font-family: 'Press Start 2P', cursive; color: var(--accent-lime);">🎮 Pronto a iniziare?</h3>
+            <p style="font-size: 1.2rem;">Unisciti alla nostra community Discord per ottenere il whitelist e iniziare l'avventura!</p>
+            <a href="https://discord.gg/HjDBbnANxQ" class="cta-button" style="margin-top: 20px;">💬 UNISCITI ORA</a>
         </div>
     </div>
 
     <footer>
+        <div class="social-links">
+            <a href="https://discord.gg/HjDBbnANxQ" target="_blank" rel="noopener">Discord</a>
+            <a href="https://github.com/drbho/mememc-network" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" target="_blank" rel="noopener">Twitter</a>
+        </div>
         <p><strong>MEMESMP</strong><br>Fatto col formaggio da un unico fondatore • 2026<br>🟩 Green Edition 🟩</p>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 15px;">© 2026 MemeSMP Network. Not affiliated with Mojang AB.</p>
     </footer>
+
+    <script>
+        // Effetto matrix rain opzionale
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('%c🤡 MEMESMP LOADED ', 'background: #00ff41; color: #051107; font-size: 20px; font-weight: bold;');
+            
+            // Aggiunge effetto hover alle card
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 
 </body>
 </html>
