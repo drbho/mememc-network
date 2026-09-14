@@ -1,0 +1,14 @@
+# Editor files
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
